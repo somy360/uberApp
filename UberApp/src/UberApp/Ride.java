@@ -11,7 +11,7 @@ public class Ride {
 	private String origin;
 	private String destination;
 	
-	
+	//constructor
 	Ride(Passenger pass, Driver driv, String orig , String dest){
 		passenger = pass;
 		driver = driv;
