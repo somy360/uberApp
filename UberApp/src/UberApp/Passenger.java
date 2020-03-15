@@ -1,5 +1,9 @@
 package UberApp;
 
-public class Passenger {
+public class Passenger extends User {
+	
+	Passenger(){
+		super();
+	}
 
 }
