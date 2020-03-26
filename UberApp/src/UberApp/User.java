@@ -23,6 +23,7 @@ public abstract class User {
 	}
 
 	//getters
+	//getter for username
 	public String getUserName() {
 		
 		return userName;
@@ -34,6 +35,11 @@ public abstract class User {
 		return id;
 	}
 
+	//getter for location
+	public String getLocation() {
+		return location;
+	}
+	
 
 
 

@@ -34,6 +34,12 @@ public class Main{
 			//create the passenger
 			Passenger passenger = new Passenger(userName, location);
 			
+			//display the list of drivers for the passengers city
+			System.out.println("Driver List: ");
+			System.out.println(passenger.getDrivers(location));
+			System.out.println("Please select a driver by entering their username: ");
+			
+			
 			
 		}
 		else if(option=='D'||option=='d'){
