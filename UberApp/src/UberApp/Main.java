@@ -13,22 +13,38 @@ public class Main{
 
 		//Get user data
 		Scanner scanner = new Scanner(System.in);  
-		System.out.println("\nPlease enter your name:");
+		System.out.print("\nPlease enter your name: ");
 		String userName = scanner.nextLine();  
 		System.out.println("\nHello! "+ userName +". \nPlease enter P to access as a passenger, or type D to access as a driver:");
-		char option = scanner.next().charAt(0);
-
+		char option = scanner.nextLine().charAt(0);
+		
 		//Select passenger or driver.
 
 		//while(true) {
 		if(option=='P'||option=='p'){	
-			System.out.println("\nIn which city are you located?");
-			String location = scanner.nextLine();  
-			System.out.println("\nPlease enter your destination:");
+			
+			System.out.println("Passenger");
+			System.out.print("In which city are you located?: ");
+			String location = scanner.nextLine();
+			//exit program if input is 0
+			//if(location.contentEquals("0")) {System.exit(0);};
+			System.out.print("\nPlease enter your destination:");
 			String destination = scanner.nextLine();
+			
+			//create the passenger
+			Passenger passenger = new Passenger(userName, location);
+			
+			
 		}
 		else if(option=='D'||option=='d'){
+			
 			System.out.println("\nDriver");
+			System.out.println("\nIn which city are you located?");
+			String location = scanner.nextLine();
+			
+			Driver driver = new Driver(userName, location);
+			System.out.println("Waiting for a passenger.....");	
+			
 		}
 		//Give user the option to exit the program
 		//			else if(option=='1'){
@@ -40,7 +56,10 @@ public class Main{
 		}
 		//}
 
-
+		scanner.close();
+		
 	}
+	
+	
 
 }
