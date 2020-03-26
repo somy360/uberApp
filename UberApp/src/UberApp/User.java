@@ -1,12 +1,40 @@
 package UberApp;
 
-public class User {
-	
+public abstract class User {
+
 	//Attributes
-	
-	//constructor
-	User(){
-		
+	protected int id;
+	protected String userName, location;
+
+	//Constructor
+	public User(String userName, String location){
+		this.userName= userName;
+		this.location= location;
 	}
+
+	//Setter for changuing location in case it's necessary
+	public void setLocation(String location) {
+		this.location=location;
+	}
+
+	//Setter for the id in case needed.
+	public void setId(int id) {
+		this.id=id;
+	}
+
+	//getters
+	public String getUserName() {
+		
+		return userName;
+	}
+
+	//getter for id in case needed.
+	public int getId() {
+
+		return id;
+	}
+
+
+
 
 }
