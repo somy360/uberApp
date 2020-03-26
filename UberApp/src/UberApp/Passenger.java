@@ -13,7 +13,7 @@ public class Passenger extends User {
 
 	}
 	//
-	public void requestRide(){
+	public void requestRide(Ride ride){
 
 
 	}
