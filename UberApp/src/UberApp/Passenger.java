@@ -39,12 +39,12 @@ public class Passenger extends User {
 		allDrivers.add(new Driver("Carlos", "Guadalajara"));
 		allDrivers.add(new Driver("Javier", "Queretaro"));
 
+		
 		//Filter list by Passengers location
+		ArrayList<Driver> filteredDrivers = new ArrayList<Driver>();
 		for(int i = 0; i < allDrivers.size(); i++) {
 			if(allDrivers.get(i).getLocation().contentEquals(location)) {
-				
-			}else {
-				allDrivers.remove(i);
+				filteredDrivers.add(allDrivers.get(i));
 			}
 		}
 		
@@ -56,7 +56,7 @@ public class Passenger extends User {
 		//drivers.add("Mark");
 		
 		//return the filtered list
-		return allDrivers;
+		return filteredDrivers;
 		
 	}
 

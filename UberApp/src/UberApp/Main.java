@@ -5,6 +5,8 @@ Main method gets user input. Interaction with the user happens here.
 
 package UberApp;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main{
@@ -36,8 +38,11 @@ public class Main{
 			
 			//display the list of drivers for the passengers city
 			System.out.println("Driver List: ");
-			System.out.println(passenger.getDrivers(location));
-			System.out.println("Please select a driver by entering their username: ");
+			List<Driver> drivers = passenger.getDrivers(location);
+			for(int i = 0; i < drivers.size(); i++) {
+				System.out.println(drivers.get(i).getUserName());
+			}
+			System.out.println("\nPlease select a driver by entering their username: ");
 			
 			
 			
