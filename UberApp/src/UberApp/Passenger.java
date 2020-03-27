@@ -28,7 +28,7 @@ public class Passenger extends User {
 		allDrivers.add(new Driver("Francisco", "Mexico City"));
 		allDrivers.add(new Driver("Rosa", "Queretaro"));
 		allDrivers.add(new Driver("Alexa", "Mexico City"));
-		allDrivers.add(new Driver("Jovana", "Queretaro"));
+		allDrivers.add(new Driver("Giovanna", "Queretaro"));
 		allDrivers.add(new Driver("Maria", "Queretaro"));
 		allDrivers.add(new Driver("Jesus", "Guadalajara"));
 		allDrivers.add(new Driver("Alejandro", "Queretaro"));
