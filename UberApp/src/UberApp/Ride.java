@@ -24,6 +24,8 @@ public class Ride {
 
 	//constructor
 	/**
+	 * This is the constructor for the Ride class
+	 * 
 	 * @param pass
 	 * @param driv
 	 * @param orig
