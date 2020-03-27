@@ -6,11 +6,29 @@ package UberApp;
 
 public class Ride {
 
+	/**
+	 * 
+	 */
 	private Passenger passenger;
+	/**
+	 * 
+	 */
 	private Driver driver;
+	/**
+	 * 
+	 */
+	/**
+	 * 
+	 */
 	private String origin, destination;
 
 	//constructor
+	/**
+	 * @param pass
+	 * @param driv
+	 * @param orig
+	 * @param dest
+	 */
 	Ride(Passenger pass, Driver driv, String orig , String dest){
 		this.passenger = pass;
 		this.driver = driv;
@@ -23,6 +41,9 @@ public class Ride {
 	 */
 
 	//return passenger object
+	/**
+	 * @return
+	 */
 	public Passenger getPassenger(){
 
 		return passenger;	
@@ -30,6 +51,9 @@ public class Ride {
 	}
 
 	//return driver object
+	/**
+	 * @return
+	 */
 	public Driver getDriver() {
 
 		return driver;
@@ -37,6 +61,9 @@ public class Ride {
 	}
 
 	//return origin string
+	/**
+	 * @return
+	 */
 	public String getOrigin() {
 
 		return origin;
@@ -44,6 +71,9 @@ public class Ride {
 	}
 
 	//return destination string
+	/**
+	 * @return
+	 */
 	public String getDestination(){
 
 		return destination;

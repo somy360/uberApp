@@ -6,6 +6,10 @@ import java.util.List;
 public class Passenger extends User {
 
 	//Constructor
+	/**
+	 * @param userName
+	 * @param location
+	 */
 	Passenger(String userName, String location){
 
 		//calls constructor of superclass User
@@ -13,12 +17,19 @@ public class Passenger extends User {
 
 	}
 	//
+	/**
+	 * @param ride
+	 */
 	public void requestRide(Ride ride){
 
 
 	}
 
 	//Will return a list of drivers afterwards
+	/**
+	 * @param location
+	 * @return
+	 */
 	public List<Driver> getDrivers(String location){
 		
 		//Fetch list of all Drivers from the server and add them to a list
@@ -60,6 +71,10 @@ public class Passenger extends User {
 		
 	}
 
+	/**
+	 * @param drivers
+	 * @return
+	 */
 	public Driver selectDriver(List<String> drivers) {
 		Driver driverTest = new Driver("",""); 
 		return driverTest;
