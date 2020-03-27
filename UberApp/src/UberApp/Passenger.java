@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Passenger extends User {
 
-	//Constructor
 	/**
-	 * @param userName
-	 * @param location
+	 * Constructor
+	 * @param userName Identify the passenger with a unique name.
+	 * @param location Indicates the city where the passenger is.
 	 */
 	Passenger(String userName, String location){
 
@@ -16,7 +16,7 @@ public class Passenger extends User {
 		super(userName,location);
 
 	}
-	//
+
 	/**
 	 * @param ride
 	 */
@@ -25,13 +25,13 @@ public class Passenger extends User {
 
 	}
 
-	//Will return a list of drivers afterwards
-	/**
+
+	/** Return a list of drivers afterwards
 	 * @param location
 	 * @return
 	 */
 	public List<Driver> getDrivers(String location){
-		
+
 		//Fetch list of all Drivers from the server and add them to a list
 		ArrayList<Driver> allDrivers = new ArrayList<Driver>();
 		allDrivers.add(new Driver("Martha", "Queretaro"));
@@ -50,7 +50,7 @@ public class Passenger extends User {
 		allDrivers.add(new Driver("Carlos", "Guadalajara"));
 		allDrivers.add(new Driver("Javier", "Queretaro"));
 
-		
+
 		//Filter list by Passengers location
 		ArrayList<Driver> filteredDrivers = new ArrayList<Driver>();
 		for(int i = 0; i < allDrivers.size(); i++) {
@@ -58,20 +58,20 @@ public class Passenger extends User {
 				filteredDrivers.add(allDrivers.get(i));
 			}
 		}
-		
+
 		//temporary code for testing purposes, real code will fetch list from server
 		//ArrayList<String> drivers = new ArrayList<String>();
 		//drivers.add("Ian");
 		//drivers.add("Jim");
 		//drivers.add("Dave");
 		//drivers.add("Mark");
-		
+
 		//return the filtered list
 		return filteredDrivers;
-		
+
 	}
 
-	/**
+	/** Passengers are able to select a driver and arrange a ride from an origin to a destination location.
 	 * @param drivers
 	 * @return
 	 */

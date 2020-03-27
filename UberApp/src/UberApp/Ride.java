@@ -6,23 +6,11 @@ package UberApp;
 
 public class Ride {
 
-	/**
-	 * 
-	 */
+	//Attributes
 	private Passenger passenger;
-	/**
-	 * 
-	 */
 	private Driver driver;
-	/**
-	 * 
-	 */
-	/**
-	 * 
-	 */
 	private String origin, destination;
 
-	//constructor
 	/**
 	 * This is the constructor for the Ride class
 	 * 
@@ -38,13 +26,10 @@ public class Ride {
 		this.destination = dest;
 	}
 
-	/*Don't need setters if we use the constructor to set all the variables, no reason 
-	 * to change any variables in a ride
-	 */
 
-	//return passenger object
+
 	/**
-	 * @return
+	 * @return return passenger object
 	 */
 	public Passenger getPassenger(){
 
@@ -52,9 +37,8 @@ public class Ride {
 
 	}
 
-	//return driver object
 	/**
-	 * @return
+	 * @return driver object
 	 */
 	public Driver getDriver() {
 
@@ -62,9 +46,8 @@ public class Ride {
 
 	}
 
-	//return origin string
 	/**
-	 * @return
+	 * @return origin string
 	 */
 	public String getOrigin() {
 
@@ -72,9 +55,8 @@ public class Ride {
 
 	}
 
-	//return destination string
 	/**
-	 * @return
+	 * @return destination string
 	 */
 	public String getDestination(){
 
