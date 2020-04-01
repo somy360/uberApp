@@ -18,7 +18,6 @@ public class Main{
 
 	public static void main(String[] args){
 
-		//Set up scanner for reading user input from console
 		Scanner scanner = new Scanner(System.in); 
 
 		//Get username from the user
