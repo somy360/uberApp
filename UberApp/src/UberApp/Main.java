@@ -17,6 +17,19 @@ public class Main{
 
 
 	public static void main(String[] args){
+		
+		
+		
+		//Test database. We will change this. 
+		DatabaseConnection connect = new DatabaseConnection();
+		connect.connectDriver();
+		connect.connectDatabase();
+		connect.retrieveDrivers();
+		connect.retrievePassengers();
+
+		
+		
+		
 
 		Scanner scanner = new Scanner(System.in); 
 
