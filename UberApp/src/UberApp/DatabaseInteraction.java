@@ -87,7 +87,7 @@ public class DatabaseInteraction{
 	public boolean checkNonRepeatedUserName(String userName){
 
 		boolean repeatedUserName = false;
-		String SQL = "SELECT * FROM passengers WHERE user_name='" + userName + "'";
+		String SQL = "SELECT * FROM passengers WHERE user_name='" + userName + "' UNION ALL SELECT * FROM drivers WHERE user_name='" + userName + "'";
 		try {
 			statement = connection.createStatement();
 			result  = statement.executeQuery(SQL);	
