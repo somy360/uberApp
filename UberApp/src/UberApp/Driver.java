@@ -1,7 +1,6 @@
 package UberApp;
 
-public class Driver extends User {
-
+public class Driver extends User{
 
 	/**
 	 * Constructor
@@ -11,16 +10,11 @@ public class Driver extends User {
 	Driver(String userName, String location){
 		//Calls constructor of superclass User
 		super(userName,location);
-
 	}
 
-	/**
-	 * Drivers are notified when a ride is arranged by a passenger.
-	 */
-	public void getNotification() {
-
+	/** Nice display of the driver's data.*/
+	public String toString(){
+		return "Driver: " + super.toString();
 	}
-
-
 
 }

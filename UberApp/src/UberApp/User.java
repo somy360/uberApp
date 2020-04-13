@@ -2,18 +2,16 @@
 
 package UberApp;
 
-public abstract class User {
+public abstract class User{
 
-	//Attributes
-	protected int id;
+	//Global Attributes.
 	protected String userName, location;
-
 
 	/**
 	 * Constructor
 	 * 
-	 * @param userName :A unique username to identify drivers and passengers.
-	 * @param location : Locations of a driver or a passenger.
+	 * @param userName : A unique user name to identify drivers or passengers.
+	 * @param location : Location of a driver or a passenger.
 	 */
 	public User(String userName, String location){
 		this.userName= userName;
@@ -22,52 +20,42 @@ public abstract class User {
 
 
 	/**
-	 * Setter for changuing location in case it's necessary.
-	 * @param location
+	 * Get user name.
+	 * @return userName  a unique user name to identify drivers or passengers.
 	 */
-	public void setLocation(String location) {
+	public String getUserName(){
+
+		return userName;
+	}
+
+	/**
+	 * Setter for changing location if necessary.
+	 * @param location new location of the user. 
+	 */
+	public void setLocation(String location){
 		this.location=location;
 	}
 
 
 	/**
-	 * Setter for the id in case needed.
-	 * @param id
+	 * Getter for location.
+	 * @return location  current location of a driver or a passenger
 	 */
-	public void setId(int id) {
-		this.id=id;
-	}
-
-
-	/**
-	 * Get user name.
-	 * @return
-	 */
-	public String getUserName() {
-
-		return userName;
-	}
-
-
-	/**
-	 * Getter for id in case needed.
-	 * @return
-	 */
-	public int getId() {
-
-		return id;
-	}
-
-
-	/**
-	 * Getter for location
-	 * @return
-	 */
-	public String getLocation() {
+	public String getLocation(){
 		return location;
 	}
 
 
+	/**
+	 * Nice display for user's data.
+	 * @return data  user name and current location.
+	 */
+	public String toString(){
 
+		String data = userName+" Location: "+location;
+
+		return data;
+	}
 
 }
+
