@@ -68,7 +68,7 @@ public class View {
 					driverUserName=userName;
 
 					System.out.println("\nHello Driver! In which city are you located?");
-					String driverLocation = scanner.nextLine();						
+					driverLocation = scanner.nextLine();						
 					System.out.print("\nThank you! You will get a notification if a passenger requests a ride with you. ");
 					break;
 

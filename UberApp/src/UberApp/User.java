@@ -52,7 +52,7 @@ public abstract class User{
 	 */
 	public String toString(){
 
-		String data = userName+" Location: "+location;
+		String data = userName+ "," +location;
 
 		return data;
 	}

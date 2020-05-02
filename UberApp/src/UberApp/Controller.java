@@ -36,8 +36,23 @@ public class Controller{
 		case 'D':
 		case 'd':
 			passDriver();
+			passDriverToServer();
+			getNotification();
 			break;
 		}	
+	}
+	
+	/**Pass the Driver's user name and location to the Server.*/
+	private void passDriverToServer() {
+		Driver driver = new Driver(view.getDriverUserName(),view.getDriverLocation());
+		Client client = new Client(driver);
+		
+		
+	}
+	
+	/**Listen to the server for notification of a ride.*/
+	private void getNotification() {
+		
 	}
 
 	/**Pass the passenger's data from the view to the model to insert it in the database.*/
