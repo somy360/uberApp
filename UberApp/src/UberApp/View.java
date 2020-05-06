@@ -87,31 +87,51 @@ public class View {
 			}
 	}
 
-	/**Display drivers in the same location.*/
-	/**
-	 * @param drivers  lit of closest drivers 
-	 */
-	public void displayListOfDrivers(List<Driver> drivers){
+	/**Show the user the option to select a driver.*/
+	public String selectDriver(){
 
-		//To avoid dependency on the Model, populate a new list of drivers with the list coming from the Controller.
-		for(Driver temp:drivers) 
-		{this.drivers.add(temp);}
-
-		//Display the list.
-		System.out.print("\nThe closest available drivers are: \n");
-		for(Driver temp:this.drivers) 
-		{System.out.println(temp);}
-		System.out.print("\nPlease select a driver.");
+//		//To avoid dependency on the Model, populate a new list of drivers with the list coming from the Controller.
+//		for(Driver temp:drivers) 
+//		{this.drivers.add(temp);}
+//
+//		//Display the list.
+//		System.out.print("\nThe closest available drivers are: \n");
+//		for(Driver temp:this.drivers) 
+//		{System.out.println(temp);}
+		System.out.print("\nPlease enter the name of the driver you wish to select.");
 		selectedDriver= scanner.nextLine();
 		scanner.close();
+		
+		return selectedDriver;
 
 	}
 
+	
+	/**Display list of drivers coming from the server.*/
+	/**
+	 * 
+	 */
+	public void displayDriversFromServer(String drivers){
+		System.out.print(drivers);
+	}
+
+	
+	/**Display notification for the driver coming from the server.*/
+	/**
+	 * 
+	 */
+	public void displayNotification(String notification){
+		System.out.print(notification);
+	}
+	
+	
+	
+	
 	/**Display selected driver.*/
 	/**
 	 * @param selectedDriver the driver selected by the passenger.
 	 */
-	public void displaSelectedDriver(String selectedDriver){
+	public void displaySelectedDriver(String selectedDriver){
 		System.out.print("\nThe selected driver is: "+selectedDriver);
 	}
 

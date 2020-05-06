@@ -29,9 +29,11 @@ public class Controller{
 		{case 'P':
 		case 'p':
 			passPassenger();
-			driversSameLocation();
-			System.out.print("\nYou have selected: "+selectDriver());
-			requestRide();
+			passPassengerToServer();
+			//getListOfDrivers();
+			//driversSameLocation();
+			//System.out.print("\nYou have selected: "+selectDriver());
+			//requestRide();
 			break;
 		case 'D':
 		case 'd':
@@ -43,12 +45,30 @@ public class Controller{
 	}
 	
 	/**Pass the Driver's user name and location to the Server.*/
-	private void passDriverToServer() {
+	private void passDriverToServer(){
 		Driver driver = new Driver(view.getDriverUserName(),view.getDriverLocation());
 		Client client = new Client(driver);
-		
+		client.sendDriver();	
+		view.displayNotification(client.notification());
+		client.loopForEver();
 		
 	}
+	
+	
+	/**Pass the Passenger's user name and location to the Server.*/
+	private void passPassengerToServer(){
+		Passenger passenger = new Passenger(view.getPassengerUserName(),view.getPassengerLocation());
+		Client client = new Client(passenger);
+		client.sendPassenger();
+		view.displayDriversFromServer(client.getListOfDrivers());
+		client.sendRide(view.getPassengerUserName(),view.getPassengerLocation(),view.selectDriver(),view.getPassengerDestination());
+		
+		
+		client.loopForEver();		
+	}
+	
+	
+	
 	
 	/**Listen to the server for notification of a ride.*/
 	private void getNotification() {
@@ -76,12 +96,13 @@ public class Controller{
 		}								
 	}
 
-	/** Let passengers find Drivers in the same location (city).
-	 Send the user input from the view to the model, and initiate a method to display list of valid drivers.*/
-	public void driversSameLocation(){
-		model.makeListOfValidDrivers(view.getPassengerLocation());	
-		view.displayListOfDrivers(model.getListOfValidDrivers());	
-	}
+	/** Let passengers find drivers in the same location (city).*/
+//	public void driversSameLocation(){
+//		//put client.getListOfValidDrivers(view.getPassengerLocation());
+//		model.makeListOfValidDrivers(view.getPassengerLocation());	
+//		//view.displayListOfDrivers();
+//		view.displayListOfDrivers(model.getListOfValidDrivers());	
+//	}
 
 	/**Passengers are able to select a driver.
 	 * 

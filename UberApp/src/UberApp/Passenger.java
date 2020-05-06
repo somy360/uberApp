@@ -16,7 +16,7 @@ public class Passenger extends User{
 
 	/** Nice display of the passenger's data.*/
 	public String toString(){
-		return "Passenger: " + super.toString();
+		return "Passenger," + super.toString();
 	}
 
 

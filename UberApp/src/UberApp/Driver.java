@@ -14,7 +14,7 @@ public class Driver extends User{
 
 	/** Nice display of the driver's data.*/
 	public String toString(){
-		return super.toString();
+		return "Driver,"+super.toString();
 	}
 
 }
