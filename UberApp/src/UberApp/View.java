@@ -6,13 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
+/**
+ * 
+ * @author Alexandra and Graeme
+ *
+ */
 public class View {
 
 	//Global Attributes.
 	private String userName,passengerUserName,driverUserName,passengerLocation,driverLocation,passengerDestination,selectedDriver;
 	private Scanner scanner = new Scanner(System.in);
-	private ArrayList<Driver> drivers = new ArrayList<Driver>();
 	private char option;
 
 
@@ -87,17 +90,12 @@ public class View {
 			}
 	}
 
-	/**Show the user the option to select a driver.*/
+	/**Show the user the option to select a driver.
+	 * 
+	 * @return the selected driver.
+	 * */
 	public String selectDriver(){
-
-//		//To avoid dependency on the Model, populate a new list of drivers with the list coming from the Controller.
-//		for(Driver temp:drivers) 
-//		{this.drivers.add(temp);}
-//
-//		//Display the list.
-//		System.out.print("\nThe closest available drivers are: \n");
-//		for(Driver temp:this.drivers) 
-//		{System.out.println(temp);}
+		
 		System.out.print("\nPlease enter the name of the driver you wish to select.");
 		selectedDriver= scanner.nextLine();
 		scanner.close();
@@ -107,43 +105,37 @@ public class View {
 	}
 
 	
-	/**Display list of drivers coming from the server.*/
-	/**
+	/**Display list of drivers coming from the server.
 	 * 
+	 * @param drivers a list of drivers
 	 */
 	public void displayDriversFromServer(String drivers){
 		System.out.print(drivers);
 	}
 
 	
-	/**Display notification for the driver coming from the server.*/
-	/**
+	/**Display notification for the driver coming from the server.
 	 * 
+	 * @param notification the notification that was received from the server
 	 */
 	public void displayNotification(String notification){
-		System.out.print(notification);
+		
+		System.out.println("\nA passenger has booked a ride with you.\n"+ notification);
 	}
 	
 	
 	
 	
-	/**Display selected driver.*/
-	/**
+	/**Display selected driver.
+	 * 
 	 * @param selectedDriver the driver selected by the passenger.
 	 */
 	public void displaySelectedDriver(String selectedDriver){
 		System.out.print("\nThe selected driver is: "+selectedDriver);
 	}
 
-	/**Display ride.*/
-	/**
-	 * @param ride current ride with origin and destination.
-	 */
-	public void displayRide(Ride ride){
-		System.out.println(ride);
-	}
-
 	/**Get the option selected by the user to pass it to the Controller.
+	 * 
 	 * @return option selected by the user; passenger, driver.
 	 * */
 	public char getOption() {
@@ -152,6 +144,7 @@ public class View {
 
 
 	/**Get passenger's user name.
+	 * 
 	 * @return  passenger user name.
 	 */
 	public String getPassengerUserName(){		
@@ -159,6 +152,7 @@ public class View {
 	}
 
 	/** Get driver's user name.
+	 * 
 	 * @return  driver's user name.
 	 */
 	public String getDriverUserName(){
@@ -166,6 +160,7 @@ public class View {
 	}
 
 	/**Get passenger's location.
+	 * 
 	 * @return  passenger's location.
 	 */
 	public String getPassengerLocation(){
@@ -173,6 +168,7 @@ public class View {
 	}
 
 	/**Get driver's location.
+	 * 
 	 * @return driver location.
 	 */
 	public String  getDriverLocation(){
@@ -180,6 +176,7 @@ public class View {
 	}
 
 	/** Get passenger's destination.
+	 * 
 	 * @return  passenger's destination.
 	 */
 	public String  getPassengerDestination(){
@@ -187,6 +184,7 @@ public class View {
 	}
 
 	/**Get the driver that the user selected after seeing the list of the closest drivers.
+	 * 
 	 * @return  selected driver.
 	 */
 	public String  getSelectedDriver(){

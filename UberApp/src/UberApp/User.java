@@ -2,6 +2,11 @@
 
 package UberApp;
 
+/**
+ * 
+ * @author Alexandra and Graeme
+ *
+ */
 public abstract class User{
 
 	//Global Attributes.
@@ -21,6 +26,7 @@ public abstract class User{
 
 	/**
 	 * Get user name.
+	 * 
 	 * @return userName  a unique user name to identify drivers or passengers.
 	 */
 	public String getUserName(){
@@ -30,6 +36,7 @@ public abstract class User{
 
 	/**
 	 * Setter for changing location if necessary.
+	 * 
 	 * @param location new location of the user. 
 	 */
 	public void setLocation(String location){
@@ -39,6 +46,7 @@ public abstract class User{
 
 	/**
 	 * Getter for location.
+	 * 
 	 * @return location  current location of a driver or a passenger
 	 */
 	public String getLocation(){
@@ -48,6 +56,7 @@ public abstract class User{
 
 	/**
 	 * Nice display for user's data.
+	 * 
 	 * @return data  user name and current location.
 	 */
 	public String toString(){

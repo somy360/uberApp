@@ -1,9 +1,15 @@
 package UberApp;
 
+/**
+ * 
+ * @author Alexandra and Graeme
+ *
+ */
 public class Driver extends User{
 
 	/**
 	 * Constructor
+	 * 
 	 * @param userName Identify the driver with a unique name.
 	 * @param location Indicates the city where the driver is.
 	 */

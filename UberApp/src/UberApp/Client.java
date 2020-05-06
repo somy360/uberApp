@@ -7,10 +7,15 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+/**
+ * 
+ * @author Alexandra and Graeme
+ *
+ */
 public class Client {
 
 	//static variables of our server
-	private static final String host = "35.178.170.153";
+	private static final String host = "35.178.170.153"; //our server is IP is dynamic so this might need changing.
 	private static final int port = 40138;
 
 	//our socket to make a connection with the server
@@ -24,30 +29,30 @@ public class Client {
 	private Passenger passenger;
 
 
-	/*
-	 * Contructor to make client drivers.
+	/**
+	 * Constructor to make client drivers.
+	 * 
+	 * @param driver creates a driver client
 	 */
-	Client(Driver driver){  // We are making just  driver clients, we should make Paasenger clients too
+	Client(Driver driver){
 
 		initialise();
 		this.driver=driver;
-		//notifyServer();
-		//loopForEver(); //this method is for testing only
 	}
 
-	/*
-	 * Contructor to make client passengers.
+	/**
+	 * Constructor to make client passengers.
+	 * 
+	 * @param passenger creates a passenger client
 	 */
-	Client(Passenger passenger){  // We are making just  driver clients, we should make Paasenger clients too
+	Client(Passenger passenger){  
 
 		initialise();
 		this.passenger=passenger;
-		//notifyServer();
-		//loopForEver(); //this method is for testing only
 	}
 
 
-	/*
+	/**
 	 * Initialise our global variables for use throughout the class
 	 */
 	private void initialise(){
@@ -62,47 +67,42 @@ public class Client {
 		}
 	}
 
-	/*When Driver logs in to app, notifies the server.*/
+	/**When Driver logs in to app, notifies the server.*/
 	public void sendDriver(){
 
 		writer.println(driver);
 	}
 
-	/*We got an error on the server because our client program ends after we execute notifyServer, thus also closing our socket.
-	 * Instead lets just loop forever to keep the program open
+	/**
 	 * 
-	 * THIS METHOD IS FOR TESTING ONLY (PLEASE REMOVE AFTER USE)
+	 * Our Driver uses this method to keep connected to the server.
+	 * In the future this will be obsolete as the driver will stay connected for the extensions.
 	 * 
 	 * This method can be used to keep the user connected while using the application.
 	 * */
 	public void loopForEver() {
 		while(true) {
-
+			//to infinity and beyond
 		}
 	}
 
-	/** Request a list of valid drivers to the server.*/
+	/** Sends the passenger info to the server which also triggers a request for list of valid drivers to the server.*/
 	public void sendPassenger(){
 
 		writer.println(passenger);
 
 	}
 
-	/** Get a list of valid drivers from the server.*/
+	/** Get a list of valid drivers from the server.
+	 * 
+	 * @return the list of valid drivers
+	 * */
 	public String getListOfDrivers(){
 
-		
-
-//		
-//		//Read input from the server
-//				InputStreamReader in = new InputStreamReader(s.getInputStream());
-//				BufferedReader bf = new BufferedReader(in);
-//				
-//				//Write the server's message
 				String str;
 				try {
 					str = serverReader.readLine();
-					System.out.println("Server says: "+str);
+					System.out.println("Available Drivers: "+str);
 					writer.close();
 					serverReader.close();
 					socket.close();
@@ -110,49 +110,40 @@ public class Client {
 				} catch (IOException e) {
 					 e.printStackTrace();
 					return "Error while getting list of valid drivers.";
-				}
-				//System.out.println("Server says: "+str);
-				
-				//Disconnect client
-				
+				}				
 
 	}
 	
-	
+	/**
+	 * Waits for a ride notification from the server and then returns it
+	 * 
+	 * @return the ride notification
+	 */
 	public String notification(){
-//		String str;
-//		while ((serverReader.readLine()!= null){
-//		     str = serverReader.readLine();
-//		}
-//		
-//		return str;
-//	
-//		String userInput;
-//		try {
-//			while ((userInput = stdIn.readLine()) != null) {
-//			    writer.println(userInput);
-//			    System.out.println("echo: " + serverReader.readLine());
-//			}
-//		}
 		
 		String str;
 		try {
 			str = serverReader.readLine();
-			//System.out.println(str);
 			return str;
 		} catch (IOException e) {
 			 e.printStackTrace();
 			return "Error while getting a notification for the driver.";
-		}
-		
+		}	
 		
 	}
 	
-	
+	/**
+	 * Makes a new connection to the server and sends the ride notification
+	 * 
+	 * @param passengerUserName passengers username
+	 * @param passengerLocation passengers location
+	 * @param selectedDriverName username of the driver the passenger selected
+	 * @param passengerDestination passengers destination
+	 */
 	public void sendRide(String passengerUserName, String passengerLocation, String selectedDriverName , String passengerDestination) {
 		
+		//initialises our variables for connecting and writing to to server
 		initialise();
-		//sendPassenger();
 		writer.println("ride,"+passengerUserName+","+passengerLocation+","+selectedDriverName+","+passengerDestination);
 	}
 

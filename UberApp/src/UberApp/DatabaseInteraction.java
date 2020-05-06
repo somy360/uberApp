@@ -12,6 +12,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Alexandra and Graeme
+ */
 public class DatabaseInteraction{
 
 	//Global Attributes.
@@ -25,7 +28,6 @@ public class DatabaseInteraction{
 
 		try {
 			connection = DriverManager.getConnection("jdbc:postgresql://ec2-46-137-177-160.eu-west-1.compute.amazonaws.com:5432/d8voi6728iiep5", "wauipwcqgqausi","889da4fe285c07ac13694c4ce1ffdadca243aec76adf2c5b75481128b9ec2a87");
-			//System.out.println("Database connected!");
 		}catch (Exception e) {
 			System.out.println("Connection Failed!");
 			e.printStackTrace();} 					

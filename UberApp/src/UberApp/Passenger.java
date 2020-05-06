@@ -1,5 +1,10 @@
 package UberApp;
 
+/**
+ * 
+ * @author Alexandra and Graeme
+ *
+ */
 public class Passenger extends User{
 
 	/**

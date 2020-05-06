@@ -4,13 +4,20 @@
 
 package UberApp;
 
+/**
+ * @author Alexandra and Graeme
+ */
 public class Controller{
 
 	//Global Attributes.
 	private DatabaseInteraction model;
 	private View view;
 
-	/**Constructor*/
+	/**Constructor
+	 * 
+	 * @param view view of the program
+	 * @param model model of the program
+	 * */
 	public Controller(View view,DatabaseInteraction model){
 		this.view=view;
 		this.model=model;
@@ -30,16 +37,11 @@ public class Controller{
 		case 'p':
 			passPassenger();
 			passPassengerToServer();
-			//getListOfDrivers();
-			//driversSameLocation();
-			//System.out.print("\nYou have selected: "+selectDriver());
-			//requestRide();
 			break;
 		case 'D':
 		case 'd':
 			passDriver();
 			passDriverToServer();
-			getNotification();
 			break;
 		}	
 	}
@@ -62,17 +64,7 @@ public class Controller{
 		client.sendPassenger();
 		view.displayDriversFromServer(client.getListOfDrivers());
 		client.sendRide(view.getPassengerUserName(),view.getPassengerLocation(),view.selectDriver(),view.getPassengerDestination());
-		
-		
 		client.loopForEver();		
-	}
-	
-	
-	
-	
-	/**Listen to the server for notification of a ride.*/
-	private void getNotification() {
-		
 	}
 
 	/**Pass the passenger's data from the view to the model to insert it in the database.*/
@@ -82,7 +74,8 @@ public class Controller{
 			model.insertPassenger(view.getPassengerUserName(),view.getPassengerLocation());	
 		}catch(Exception e){
 			System.out.println("Insertion failed");
-			e.printStackTrace();}									
+			e.printStackTrace();
+		}									
 	}
 
 	/**Pass the driver's data from the view to the model to insert it in the database.*/
@@ -94,42 +87,5 @@ public class Controller{
 			System.out.println("Insertion failed");
 			e.printStackTrace();
 		}								
-	}
-
-	/** Let passengers find drivers in the same location (city).*/
-//	public void driversSameLocation(){
-//		//put client.getListOfValidDrivers(view.getPassengerLocation());
-//		model.makeListOfValidDrivers(view.getPassengerLocation());	
-//		//view.displayListOfDrivers();
-//		view.displayListOfDrivers(model.getListOfValidDrivers());	
-//	}
-
-	/**Passengers are able to select a driver.
-	 * 
-	 * @return driver     the selected driver
-	 * */
-	public Driver selectDriver(){
-		Driver driver = null;
-		for(int i=0; i<model.getListOfValidDrivers().size(); i++){
-			if(model.getListOfValidDrivers().get(i).getUserName().contentEquals(view.getSelectedDriver())) {
-				driver = model.getListOfValidDrivers().get(i); 
-			}
-		}
-		return driver;
-	}
-
-	/**Passengers are able to arrange a ride from an origin to a destination.*/
-	public void requestRide(){
-
-		//Create the ride.
-		Ride ride = new Ride(new Passenger(view.getPassengerUserName(),view.getPassengerLocation()), selectDriver(), view.getPassengerLocation(), view.getPassengerDestination());
-		view.displayRide(ride);
-	}
-
-	/**Drivers are notified when a ride is arranged by a passenger.*/
-	public void driverGetsNotification(){
-
-		//I left this method here at the moment, just while we move forward with the java sockets. 
-		System.out.println("Hello "+selectDriver().getUserName()+"! The passenger "+view.getPassengerUserName()+ " has selected a ride with you");
 	}
 }
